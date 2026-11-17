@@ -23,7 +23,11 @@ app.use(express.json());
 app.use(session({
     secret: "surveysecret",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+        sameSite: "none",
+        secure: true
+    }
 }));
 
 app.use(express.static(path.join(__dirname, "../frontend")));
