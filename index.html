@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Online Survey Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>ONLINE SURVEY APPLICATION</h1>
+
+    <div id="login">
+
+        <h2>Student Login / Registration</h2>
+
+        <input type="text" id="username" placeholder="Enter Username">
+
+        <input type="password" id="password" placeholder="Enter Password">
+
+        <br>
+
+        <button onclick="register()">Register</button>
+
+        <button onclick="login()">Login</button>
+
+    </div>
+
+
+    <div id="dashboard" style="display:none;">
+
+        <h2>Welcome <span id="user"></span></h2>
+
+        <button onclick="startSurvey()">Start Survey</button>
+
+        <button onclick="analysis()">Overall Analysis</button>
+
+        <button onclick="logout()">Logout</button>
+
+    </div>
+
+
+    <div id="survey"></div>
+
+    <button id="submit" style="display:none;"
+    onclick="submitSurvey()">Submit Answers</button>
+
+
+    <div id="result"></div>
+
+    <div id="analysisSection"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
