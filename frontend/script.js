@@ -1,3 +1,6 @@
+
+const API_URL = "https://fswd-online-survey-backend.onrender.com";
+
 let currentQuestions = [];
 
 
@@ -8,8 +11,9 @@ async function register() {
     let username = document.getElementById("username").value.trim();
     let password = document.getElementById("password").value;
 
-    let res = await fetch("/register", {
+    let res = await fetch(`${API_URL}/register`, {
         method: "POST",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
     });
@@ -28,8 +32,9 @@ async function login() {
     let username = document.getElementById("username").value.trim();
     let password = document.getElementById("password").value;
 
-    let res = await fetch("/login", {
+    let res = await fetch(`${API_URL}/login`, {
         method: "POST",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password })
     });
@@ -55,7 +60,9 @@ async function login() {
 
 async function startSurvey() {
 
-    let res = await fetch("/questions");
+    let res = await fetch(`${API_URL}/questions`, {
+        credentials: "include"
+    });
 
     currentQuestions = await res.json();
 
@@ -128,8 +135,9 @@ async function submitSurvey() {
 
     }
 
-    let res = await fetch("/submit", {
+    let res = await fetch(`${API_URL}/submit`, {
         method: "POST",
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ answers })
     });
@@ -177,7 +185,9 @@ async function submitSurvey() {
 
 async function analysis() {
 
-    let res = await fetch("/analysis");
+    let res = await fetch(`${API_URL}/analysis`, {
+        credentials: "include"
+    });
 
     let data = await res.json();
 
@@ -238,7 +248,9 @@ async function analysis() {
 
 async function logout() {
 
-    await fetch("/logout");
+    await fetch(`${API_URL}/logout`, {
+        credentials: "include"
+    });
 
     location.reload();
 
