@@ -5,6 +5,7 @@ const session = require("express-session");
 const path = require("path");
 
 const app = express();
+app.set("trust proxy", 1);
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "https://kavin-46.github.io");
     res.header("Access-Control-Allow-Credentials", "true");
